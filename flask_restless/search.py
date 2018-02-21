@@ -495,7 +495,8 @@ class QueryBuilder(object):
                         relation_model = relation.mapper.class_
                         field = getattr(relation_model, field_name_in_relation)
                         direction = getattr(field, val.direction)
-                        query = query.join(relation_model)
+                        # query = query.join(relation_model)
+                        query = query.join(relation)
                         query = query.order_by(direction())
                     else:
                         field = getattr(model, val.field)
